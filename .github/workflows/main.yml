@@ -13,6 +13,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
+      BRANCH:
+        type: string
       PROJECT:
         description: 'PROJECT'
         type: choice
@@ -27,5 +29,5 @@ jobs:
   testing-build:
     uses: ./.github/workflows/test.yml
     with:
-      BRANCH: ${{ env.GITHUB_REF_NAME }}
+      BRANCH: ${{ inputs.BRANCH }}
       PROJECT: ${{ inputs.PROJECT }}
