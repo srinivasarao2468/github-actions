@@ -9,16 +9,7 @@ on:
 jobs:
   ci-build:
     name: CI Build
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Add your CI build steps here
-      # For example, build, test, and deploy your code
-
-      - name: Execute Test workflow
-        uses: ./.github/workflows/test.yml
-        with:
-          BRANCH: ${{ github.event.inputs.BRANCH || github.ref }}
-          PROJECT: 'devops'
+    uses: ./.github/workflows/test.yml
+    with:
+      BRANCH: ${{ github.event.inputs.BRANCH || github.ref }}
+      PROJECT: 'devops'
