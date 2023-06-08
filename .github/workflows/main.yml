@@ -27,5 +27,4 @@ jobs:
   testing-build:
     uses: ./.github/workflows/test.yml
     with:
-      BRANCH: "${GITHUB_REF##*/}"
       PROJECT: ${{ inputs.PROJECT }}
