@@ -28,6 +28,11 @@ jobs:
   # This workflow contains a single job called "build"
   testing-build:
     uses: ./.github/workflows/test.yml
-    with:
-      BRANCH: ${{ inputs.BRANCH }}
-      PROJECT: ${{ inputs.PROJECT }}
+      steps:
+      - name: Get branch name
+        id: branch
+        run: echo "::set-output name=branch_name::$(echo ${GITHUB_REF#refs/heads/})"
+      
+
+      
+
