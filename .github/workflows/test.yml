@@ -21,6 +21,7 @@ jobs:
         with:
           repository: srinivasarao2468/github-actions
           ref: ${{ inputs.BRANCH }}
-
-      # Add your test steps here
-      # For example, run unit tests or integration tests
+      - name: Checking workspace
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
